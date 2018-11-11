@@ -3,7 +3,18 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+
+  if len(recipe) != len(ingredients):
+    return 0
+
+  ingredients_vals = [i[1] for i in ingredients.items()]
+  recipe_vals = [i[1] for i in recipe.items()]
+  blank = []
+
+  for i in range(0, len(ingredients_vals)):
+    blank.append(ingredients_vals[i] //recipe_vals[i] )
+  
+  return min(blank)
 
 
 if __name__ == '__main__':
